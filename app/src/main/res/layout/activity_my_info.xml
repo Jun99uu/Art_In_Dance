@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyInfoActivity"
+    android:background="@color/art_light_pink">
+
+
+    <View
+        android:id="@+id/banner_top"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/art_pink"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/info_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/tmon"
+        android:gravity="center"
+        android:text="관리자님의 \n11 월의 출석부"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@id/banner_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="@id/banner_top"
+        app:layout_constraintRight_toRightOf="@id/banner_top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/banner_top"
+        app:layout_constraintVertical_bias="0.64" />
+
+    <View
+        android:id="@+id/calander"
+        android:layout_width="370dp"
+        android:layout_height="400dp"
+        android:background="@drawable/border_round"
+        app:layout_constraintTop_toBottomOf="@id/banner_top"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="25dp" />
+        
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:scrollbars="vertical"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/calander"
+        app:layout_constraintBottom_toBottomOf="@id/calander"
+        app:layout_constraintLeft_toLeftOf="@id/calander"
+        app:layout_constraintRight_toRightOf="@id/calander"/>
+
+    <ImageView
+        android:id="@+id/walking_gif"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintTop_toBottomOf="@id/calander"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/border_round"
+        android:backgroundTint="#00FFFFFF"/>
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toBottomOf="@id/calander"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/walking_gif"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/border_round"
+        android:backgroundTint="@color/art_light_green"
+        android:text="이번 달도,\n 열심히 운동 ♥"
+        android:fontFamily="@font/tmon"
+        android:textSize="23sp"
+        android:textColor="#272727"
+        android:gravity="center"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

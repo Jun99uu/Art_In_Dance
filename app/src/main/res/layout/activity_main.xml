@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@drawable/gradient"
+        android:orientation="vertical"
+        android:padding="10dp"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="name"
+            android:fontFamily="@font/cafe24danjunghae"
+            android:textColor="@color/black"
+            android:textSize="55sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 님, 오늘도 환영합니다."
+            android:fontFamily="@font/tmon"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintLeft_toRightOf="@+id/name"
+            app:layout_constraintBottom_toBottomOf="@+id/name" />
+
+        <View
+            android:id="@+id/base_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/border_round"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            android:layout_marginTop="35dp">
+        </View>
+
+        <Button
+            android:id="@+id/attendance_btn"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/border_main_button"
+            app:layout_constraintLeft_toLeftOf="@id/base_view"
+            app:layout_constraintRight_toLeftOf="@id/rank_btn"
+            app:layout_constraintTop_toTopOf="@+id/base_view"
+            app:layout_constraintBottom_toBottomOf="@id/base_view"
+            android:text="출석\n체크"
+            android:fontFamily="@font/cafe24danjunghae"
+            android:textSize="35sp" />
+
+        <Button
+            android:id="@+id/rank_btn"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:background="@drawable/border_main_button"
+            app:layout_constraintTop_toTopOf="@id/base_view"
+            app:layout_constraintBottom_toTopOf="@id/my_info_btn"
+            app:layout_constraintLeft_toRightOf="@id/attendance_btn"
+            app:layout_constraintRight_toRightOf="@id/base_view"
+            android:text="이번 달\n랭킹"
+            android:fontFamily="@font/cafe24danjunghae"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/my_info_btn"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:background="@drawable/border_main_button"
+            app:layout_constraintTop_toBottomOf ="@id/rank_btn"
+            app:layout_constraintBottom_toBottomOf="@id/base_view"
+            app:layout_constraintLeft_toRightOf="@id/attendance_btn"
+            app:layout_constraintRight_toRightOf="@id/base_view"
+            android:text="나의\n출석 정보"
+            android:fontFamily="@font/cafe24danjunghae"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/base_view2"
+            android:layout_width="match_parent"
+            android:layout_height="370dp"
+            android:background="@drawable/border_round"
+            app:layout_constraintTop_toBottomOf="@id/base_view"
+            android:layout_marginTop="40dp" />
+        <Button
+            android:id="@+id/class_check"
+            android:layout_width="320dp"
+            android:layout_height="80dp"
+            android:background="@drawable/border_main_button"
+            android:backgroundTint="@color/art_purple"
+            app:layout_constraintTop_toTopOf="@id/base_view2"
+            app:layout_constraintBottom_toTopOf="@id/reservation"
+            app:layout_constraintLeft_toLeftOf="@id/base_view2"
+            app:layout_constraintRight_toRightOf="@id/base_view2"
+            android:text="수업 확인"
+            android:fontFamily="@font/cafe24danjunghae"
+            android:textSize="25sp"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/reservation"
+            android:layout_width="320dp"
+            android:layout_height="80dp"
+            android:background="@drawable/border_main_button"
+            android:backgroundTint="@color/art_purple"
+            app:layout_constraintTop_toBottomOf="@id/class_check"
+            app:layout_constraintBottom_toBottomOf="@id/reference"
+            app:layout_constraintLeft_toLeftOf="@id/base_view2"
+            app:layout_constraintRight_toRightOf="@id/base_view2"
+            android:text="수업 예약"
+            android:fontFamily="@font/cafe24danjunghae"
+            android:textSize="25sp"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/reference"
+            android:layout_width="320dp"
+            android:layout_height="80dp"
+            android:background="@drawable/border_main_button"
+            android:backgroundTint="@color/art_hard_purple"
+            app:layout_constraintTop_toBottomOf="@id/reservation"
+            app:layout_constraintBottom_toBottomOf="@id/base_view2"
+            app:layout_constraintLeft_toLeftOf="@id/base_view2"
+            app:layout_constraintRight_toRightOf="@id/base_view2"
+            android:text="참고 자료"
+            android:fontFamily="@font/cafe24danjunghae"
+            android:textSize="25sp"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/dev_info"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/border_round"
+            android:text="developer\ninfo"
+            android:fontFamily="@font/tmon"
+            app:layout_constraintTop_toBottomOf="@id/base_view2"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/art_white" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/border_round"
+            android:text="프로필 정보"
+            app:layout_constraintTop_toBottomOf="@id/base_view2"
+            app:layout_constraintRight_toLeftOf="@+id/dev_info"
+            android:fontFamily="@font/tmon"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
