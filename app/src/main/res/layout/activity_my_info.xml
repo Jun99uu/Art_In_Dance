@@ -13,8 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@color/art_pink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/info_info"

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
@@ -41,12 +42,16 @@ public class MyInfoActivity extends AppCompatActivity {
         int imonth = Integer.parseInt(month);
         int iday = Integer.parseInt(day);
 
+        AttendanceTableMaker tableMaker = new AttendanceTableMaker(this, imonth);
+        ArrayList<Integer> daydata = tableMaker.getATDday();
+
         String title = name + "님의\n" + month + "출석부";
 
         info_info.setText(title);
+        info_info.setBackgroundColor(Color.parseColor("#F0D9E7"));
 
         ImageView dancing = (ImageView)findViewById(R.id.walking_gif);
-        Glide.with(this).load(R.raw.dancing).into(dancing);
+        Glide.with(this).load(R.raw.mario).into(dancing);
 
         ArrayList<String> list = new ArrayList<>();
         Calendar cal = Calendar.getInstance();
@@ -59,13 +64,13 @@ public class MyInfoActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 7));
 
-        Myinfo_adapter adapter = new Myinfo_adapter(list);
+        Myinfo_adapter adapter = new Myinfo_adapter(this, list, daydata);
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new myItemDecoration());
     }
 
     public class myItemDecoration extends RecyclerView.ItemDecoration{
-        private final int padding = 40;
+        private final int padding = 30;
 
         @Override
         public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state){

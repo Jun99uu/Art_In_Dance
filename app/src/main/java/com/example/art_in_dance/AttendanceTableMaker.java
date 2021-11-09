@@ -10,6 +10,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class AttendanceTableMaker extends SQLiteOpenHelper {
     static final String DB_NAME = "USER_INFO"; //데이터베이스 이름
     static final String TABLE_NAME = "AttendanceTABLE"; //테이블 이름
@@ -76,6 +79,22 @@ public class AttendanceTableMaker extends SQLiteOpenHelper {
         }else
             return 0;
         return result;
+    }
+
+    //출석한 날짜(일만) 배열로 받아오는 함수
+    public ArrayList<Integer> getATDday(){
+        ArrayList<Integer> getdaydata = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT DATE FROM AttendanceTABLE", null);
+        if(cursor.getCount() > 0){
+            for(int i = 0; cursor.moveToNext(); i++){
+                getdaydata.add(cursor.getInt(0));
+                System.out.println(getdaydata.get(i));
+            }
+        }
+
+        return getdaydata;
     }
 
 }
