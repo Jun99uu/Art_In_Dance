@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#00FFFFFF">
+
+    <TextView
+        android:id="@+id/rank_item"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:background="@drawable/border_round"
+        android:backgroundTint="@color/art_light_green"
+        android:text="관리자님 : n회"
+        android:fontFamily="@font/yui"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+</LinearLayout>

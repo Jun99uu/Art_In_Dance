@@ -57,6 +57,7 @@ public class AttendanceActivity extends AppCompatActivity {
         tableMaker = new AttendanceTableMaker(this, version);
 
         //출석 db 삽입
+        //최신화된 DB의 ATD_NUMBER 칼럼의 가장 마지막 행을 서버 DB의 ATD에 삽입
         atd_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
