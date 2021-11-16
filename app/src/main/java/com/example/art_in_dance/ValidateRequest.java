@@ -17,7 +17,6 @@ public class ValidateRequest extends StringRequest{
         super(Request.Method.POST, URL, listener, null);
         map = new HashMap<>();
         map.put("UserID", UserID);
-        System.out.println("검사완료");
     }
     @Override
     protected Map<String, String> getParams() throws AuthFailureError{

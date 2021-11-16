@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ATDRank_Request extends StringRequest {
-    final static private String URL = "http://artindance99.ivyro.net/Register.php";
+    final static private String URL = "http://artindance99.ivyro.net/ATDSend.php";
     private Map<String,String> map;
 
     public ATDRank_Request(int ATD_NUMBER, String UserName, Response.Listener<String> listener){

@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         TextView set_name = (TextView)findViewById(R.id.name); //유저이름 name
         Button attendance_btn = findViewById(R.id.attendance_btn);
         Button myinfo_btn = findViewById(R.id.my_info_btn);
+        Button rank_btn = findViewById(R.id.rank_btn);
 
         Intent intent = getIntent();
 
@@ -43,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent infointent = new Intent(MainActivity.this, MyInfoActivity.class);
                 infointent.putExtra("UserName", name);
                 startActivity(infointent);
+            }
+        });
+
+        rank_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent rankintent = new Intent(MainActivity.this, ATDRank.class);
+                rankintent.putExtra("UserName", name);
+                startActivity(rankintent);
             }
         });
 

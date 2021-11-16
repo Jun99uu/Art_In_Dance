@@ -23,7 +23,7 @@
     </View>
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/rank_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="관리자님,"
@@ -34,7 +34,7 @@
         app:layout_constraintLeft_toLeftOf="@id/box"
         app:layout_constraintRight_toRightOf="@id/box"
         app:layout_constraintTop_toTopOf="@id/box"
-        android:paddingTop="15dp"/>
+        android:paddingTop="25dp"/>
 
     <TextView
         android:id="@+id/question"
@@ -47,39 +47,30 @@
         android:textSize="25sp"
         app:layout_constraintLeft_toLeftOf="@id/box"
         app:layout_constraintRight_toRightOf="@id/box"
-        app:layout_constraintTop_toBottomOf = "@id/name" />
+        app:layout_constraintTop_toBottomOf = "@id/rank_name" />
 
-    <ScrollView
-        android:id="@+id/scroll"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rank_recycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/question"
+        app:layout_constraintBottom_toTopOf="@id/refresh"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/refresh"
         android:layout_width="300dp"
-        android:layout_height="400dp"
-        android:paddingTop="30dp"
-        android:paddingBottom="30dp"
-        app:layout_constraintBottom_toTopOf="@id/coin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="@id/box"
-        app:layout_constraintRight_toRightOf="@id/box"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/question">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rank_recycler"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </ScrollView>
-
-    <TextView
-        android:id="@+id/coin"
-        android:layout_width="350dp"
         android:layout_height="50dp"
-        android:text="더 열심히해서\n1등 가즈아~"
+        android:text="출석 정보 새로고침"
         android:gravity="center"
         android:fontFamily="@font/vitro_pride"
-        android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@id/scroll"
+        android:textSize="17sp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="@id/box"
+        app:layout_constraintLeft_toLeftOf="@id/box"
         app:layout_constraintRight_toRightOf="@id/box"
-        android:background="@color/art_light_pink" />
+        android:background="@drawable/border_round"
+        android:backgroundTint="@color/art_smooth_pink"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
