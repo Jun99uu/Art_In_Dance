@@ -53,7 +53,7 @@
         android:layout_marginRight="2dp"
         android:layout_marginBottom="24dp"
         android:ems="10"
-        android:hint="생년월일"
+        android:hint="생년월일 (ex.990614)"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/join_id"
         app:layout_constraintEnd_toEndOf="@+id/check_button" />

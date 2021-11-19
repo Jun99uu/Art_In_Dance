@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClassMaker"
+    android:background="@color/art_green">
+
+    <View
+        android:id="@+id/box"
+        android:layout_width="350dp"
+        android:layout_height="650dp"
+        android:background="@drawable/border_round"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수업을 만들어볼까요?"
+        app:layout_constraintLeft_toLeftOf="@+id/box"
+        app:layout_constraintRight_toRightOf="@id/box"
+        app:layout_constraintTop_toTopOf="@id/box"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/vitro_core"
+        android:textSize="30sp"
+        android:textColor="@color/black"/>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="300dp"
+        android:layout_height="10dp"
+        android:background="@drawable/border_round"
+        android:backgroundTint="@color/art_green"
+        app:layout_constraintLeft_toLeftOf="@id/box"
+        app:layout_constraintRight_toRightOf="@id/box"
+        app:layout_constraintTop_toBottomOf="@id/hi"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="수업 날짜를 입력해주세요. (ex.211119)"
+        android:textSize="18sp"
+        android:fontFamily="@font/vitro_pride"
+        android:inputType="textPersonName"
+        app:layout_constraintLeft_toLeftOf="@id/box"
+        app:layout_constraintRight_toRightOf="@id/box"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:layout_constraintBottom_toTopOf="@id/start_time"
+        />
+
+    <EditText
+        android:id="@+id/start_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="수업 시작 시간을 입력해주세요.(ex.0800, 1630)"
+        android:textSize="15sp"
+        android:fontFamily="@font/vitro_pride"
+        android:inputType="textPersonName"
+        app:layout_constraintLeft_toLeftOf="@id/box"
+        app:layout_constraintRight_toRightOf="@id/box"
+        app:layout_constraintTop_toBottomOf="@id/date"
+        app:layout_constraintBottom_toTopOf="@id/end_time"
+        />
+
+    <EditText
+        android:id="@+id/end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="수업 끝 시간을 입력해주세요.(ex.0830, 1700)"
+        android:textSize="15sp"
+        android:fontFamily="@font/vitro_pride"
+        android:inputType="textPersonName"
+        app:layout_constraintLeft_toLeftOf="@id/box"
+        app:layout_constraintRight_toRightOf="@id/box"
+        app:layout_constraintTop_toBottomOf="@id/start_time"
+        app:layout_constraintBottom_toTopOf="@id/subject"
+        />
+
+    <EditText
+        android:id="@+id/subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="과목을 입력해주세요."
+        android:textSize="18sp"
+        android:fontFamily="@font/vitro_pride"
+        android:inputType="textPersonName"
+        app:layout_constraintLeft_toLeftOf="@id/box"
+        app:layout_constraintRight_toRightOf="@id/box"
+        app:layout_constraintTop_toBottomOf="@id/end_time"
+        app:layout_constraintBottom_toTopOf="@id/explain"
+        />
+
+    <EditText
+        android:id="@+id/explain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="수업을 간단히 설명해주세요."
+        android:textSize="18sp"
+        android:fontFamily="@font/vitro_pride"
+        android:inputType="textPersonName"
+        app:layout_constraintLeft_toLeftOf="@id/box"
+        app:layout_constraintRight_toRightOf="@id/box"
+        app:layout_constraintTop_toBottomOf="@id/subject"
+        app:layout_constraintBottom_toTopOf="@id/person"
+        />
+
+    <EditText
+        android:id="@+id/person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="최대 인원 수를 입력해주세요.(ex.4)"
+        android:fontFamily="@font/vitro_pride"
+        android:textSize="17sp"
+        android:inputType="textPersonName"
+        app:layout_constraintLeft_toLeftOf="@id/box"
+        app:layout_constraintRight_toRightOf="@id/box"
+        app:layout_constraintTop_toBottomOf="@id/explain"
+        app:layout_constraintBottom_toBottomOf="@id/class_make"
+        />
+
+    <Button
+        android:id="@+id/class_make"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="등록하기"
+        android:fontFamily="@font/cafe24danjunghae"
+        android:textSize="18sp"
+        android:background="@drawable/border_round"
+        android:backgroundTint="@color/art_pink"
+        app:layout_constraintLeft_toLeftOf="@id/box"
+        app:layout_constraintRight_toRightOf="@id/box"
+        app:layout_constraintTop_toBottomOf="@id/person"
+        app:layout_constraintBottom_toBottomOf="@id/box"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

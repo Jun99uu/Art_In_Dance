@@ -111,7 +111,7 @@ public class ATDRank extends AppCompatActivity {
                 ATDRank_Request atdRank_request = new ATDRank_Request(atd_number, name, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(ATDRank.this);
                 queue.add(atdRank_request);
-                Toast.makeText(getApplicationContext(),String.format("새로고침 완료.\n랭킹을 다시 확인하려면 뒤로 가고 다시 와주세요!"), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),String.format("뒤로 갔다, 다시 와주세요!"), Toast.LENGTH_SHORT).show();
             }
         });
     }

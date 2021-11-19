@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="#00FFFFFF">
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:text="2021.11.19\n16:00 ~ 17:00\n필라테스\n(2/4)"
+        android:gravity="center"
+        android:fontFamily="@font/cafe24danjunghae"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:background="@drawable/border_round"
+        android:backgroundTint="@color/art_light_pink"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

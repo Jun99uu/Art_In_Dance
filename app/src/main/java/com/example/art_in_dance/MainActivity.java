@@ -23,11 +23,13 @@ public class MainActivity extends AppCompatActivity {
         Button attendance_btn = findViewById(R.id.attendance_btn);
         Button myinfo_btn = findViewById(R.id.my_info_btn);
         Button rank_btn = findViewById(R.id.rank_btn);
+        Button class_check = findViewById(R.id.class_check);
 
         Intent intent = getIntent();
 
         String name = intent.getStringExtra("UserName");
         set_name.setText(name);
+        String ID = intent.getStringExtra("UserID");
 
         attendance_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +57,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(rankintent);
             }
         });
+
+        class_check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(ID.equals("admin")){
+                    Intent class_make_intent = new Intent(MainActivity.this, ClassMaker.class);
+                    class_make_intent.putExtra("UserName", name);
+                    startActivity(class_make_intent);
+                }else{
+                    Intent class_reserve_intent = new Intent(MainActivity.this, ClassReserver.class);
+                    class_reserve_intent.putExtra("UserName", name);
+                    startActivity(class_reserve_intent);
+                }
+            }
+        });
+
 
     }
 

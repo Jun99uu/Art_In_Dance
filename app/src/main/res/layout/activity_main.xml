@@ -103,7 +103,7 @@
             app:layout_constraintBottom_toTopOf="@id/reservation"
             app:layout_constraintLeft_toLeftOf="@id/base_view2"
             app:layout_constraintRight_toRightOf="@id/base_view2"
-            android:text="수업 확인"
+            android:text="수업 예약"
             android:fontFamily="@font/cafe24danjunghae"
             android:textSize="25sp"
             android:textColor="@color/white"/>
@@ -118,7 +118,7 @@
             app:layout_constraintBottom_toBottomOf="@id/reference"
             app:layout_constraintLeft_toLeftOf="@id/base_view2"
             app:layout_constraintRight_toRightOf="@id/base_view2"
-            android:text="수업 예약"
+            android:text="내 예약 수업"
             android:fontFamily="@font/cafe24danjunghae"
             android:textSize="25sp"
             android:textColor="@color/white"/>

@@ -14,10 +14,13 @@
         android:theme="@style/Theme.Art_In_Dance"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ATDRank"
+            android:name=".ClassMaker"
             android:exported="true" />
         <activity
-            android:name=".MyInfo"
+            android:name=".ClassReserver"
+            android:exported="true" />
+        <activity
+            android:name=".ATDRank"
             android:exported="true" />
         <activity
             android:name=".MyInfoActivity"
