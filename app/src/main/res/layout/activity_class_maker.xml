@@ -43,45 +43,65 @@
         app:layout_constraintTop_toBottomOf="@id/hi"
         android:layout_marginTop="20dp"/>
 
-    <EditText
+    <Button
+        android:id="@+id/date_pick"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="날짜 설정"
+        android:fontFamily="@font/vitro_pride"
+        android:background="@drawable/border_round"
+        android:backgroundTint="@color/art_green"
+        app:layout_constraintLeft_toLeftOf="@id/box"
+        app:layout_constraintRight_toLeftOf="@id/time_pick"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:layout_constraintBottom_toTopOf="@id/date"
+        android:drawableRight="@drawable/calandericon"
+        android:paddingRight="10dp"
+        />
+
+    <Button
+        android:id="@+id/time_pick"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="시각 설정"
+        android:fontFamily="@font/vitro_pride"
+        android:background="@drawable/border_round"
+        android:backgroundTint="@color/art_green"
+        app:layout_constraintLeft_toRightOf="@id/date_pick"
+        app:layout_constraintRight_toRightOf="@id/box"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:layout_constraintBottom_toTopOf="@id/date"
+        android:drawableRight="@drawable/calandericon"
+        android:paddingRight="10dp"
+        />
+
+
+    <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="수업 날짜를 입력해주세요. (ex.211119)"
-        android:textSize="18sp"
+        android:text="수업 날짜와 시각을 입력해주세요"
+        android:textSize="20sp"
         android:fontFamily="@font/vitro_pride"
-        android:inputType="textPersonName"
         app:layout_constraintLeft_toLeftOf="@id/box"
         app:layout_constraintRight_toRightOf="@id/box"
-        app:layout_constraintTop_toBottomOf="@id/line"
-        app:layout_constraintBottom_toTopOf="@id/start_time"
+        app:layout_constraintTop_toBottomOf="@id/date_pick"
+        app:layout_constraintBottom_toTopOf="@id/time"
         />
 
+
+
     <EditText
-        android:id="@+id/start_time"
+        android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="수업 시작 시간을 입력해주세요.(ex.0800, 1630)"
-        android:textSize="15sp"
+        android:hint="수업 시간을 분 단위로 입력해주세요. (ex. 90)"
+        android:textSize="16sp"
         android:fontFamily="@font/vitro_pride"
         android:inputType="textPersonName"
         app:layout_constraintLeft_toLeftOf="@id/box"
         app:layout_constraintRight_toRightOf="@id/box"
         app:layout_constraintTop_toBottomOf="@id/date"
-        app:layout_constraintBottom_toTopOf="@id/end_time"
-        />
-
-    <EditText
-        android:id="@+id/end_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="수업 끝 시간을 입력해주세요.(ex.0830, 1700)"
-        android:textSize="15sp"
-        android:fontFamily="@font/vitro_pride"
-        android:inputType="textPersonName"
-        app:layout_constraintLeft_toLeftOf="@id/box"
-        app:layout_constraintRight_toRightOf="@id/box"
-        app:layout_constraintTop_toBottomOf="@id/start_time"
         app:layout_constraintBottom_toTopOf="@id/subject"
         />
 
@@ -89,21 +109,36 @@
         android:id="@+id/subject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="과목을 입력해주세요."
+        android:hint="과목이름 입력"
         android:textSize="18sp"
         android:fontFamily="@font/vitro_pride"
         android:inputType="textPersonName"
         app:layout_constraintLeft_toLeftOf="@id/box"
-        app:layout_constraintRight_toRightOf="@id/box"
-        app:layout_constraintTop_toBottomOf="@id/end_time"
+        app:layout_constraintRight_toLeftOf="@id/teacher_name"
+        app:layout_constraintTop_toBottomOf="@id/time"
         app:layout_constraintBottom_toTopOf="@id/explain"
         />
+
+    <EditText
+        android:id="@+id/teacher_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="선생님 이름 입력"
+        android:textSize="18sp"
+        android:fontFamily="@font/vitro_pride"
+        android:inputType="textPersonName"
+        app:layout_constraintLeft_toRightOf="@id/subject"
+        app:layout_constraintRight_toRightOf="@id/box"
+        app:layout_constraintTop_toBottomOf="@id/time"
+        app:layout_constraintBottom_toTopOf="@id/explain"
+        />
+
 
     <EditText
         android:id="@+id/explain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="수업을 간단히 설명해주세요."
+        android:hint="수업을 간단히 설명해주세요.(100자이내)"
         android:textSize="18sp"
         android:fontFamily="@font/vitro_pride"
         android:inputType="textPersonName"
