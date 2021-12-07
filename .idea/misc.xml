@@ -16,7 +16,8 @@
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_attendance_done2.xml" value="0.22735507246376813" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_attendance_list_make.xml" value="0.24728260869565216" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_class_maker.xml" value="0.176" />
-        <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_class_reserver.xml" value="0.2463768115942029" />
+        <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_class_reserver.xml" value="0.21804511278195488" />
+        <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_class_reserver_decide.xml" value="0.24909420289855072" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_my_info.xml" value="0.264" />
@@ -24,12 +25,13 @@
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/attendace_make.xml" value="0.264" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/attendance_false.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/attendance_true.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/class_item.xml" value="0.2504528985507246" />
+        <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/class_item.xml" value="0.264" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/item_my_info.xml" value="0.245018115942029" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/myinfo_done.xml" value="0.2" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/myinfo_not.xml" value="0.245018115942029" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/myinfo_yet.xml" value="0.4" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/rank_item.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/tmp.xml" value="0.2368659420289855" />
       </map>
     </option>
   </component>

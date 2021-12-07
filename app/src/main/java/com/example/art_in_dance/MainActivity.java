@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     Intent class_reserve_intent = new Intent(MainActivity.this, ClassReserver.class);
                     class_reserve_intent.putExtra("UserName", name);
+                    class_reserve_intent.putExtra("UserID", ID);
                     startActivity(class_reserve_intent);
                 }
             }
