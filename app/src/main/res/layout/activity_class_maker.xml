@@ -114,13 +114,13 @@
         android:fontFamily="@font/vitro_pride"
         android:inputType="textPersonName"
         app:layout_constraintLeft_toLeftOf="@id/box"
-        app:layout_constraintRight_toLeftOf="@id/teacher_name"
+        app:layout_constraintRight_toLeftOf="@id/info_main"
         app:layout_constraintTop_toBottomOf="@id/time"
         app:layout_constraintBottom_toTopOf="@id/explain"
         />
 
     <EditText
-        android:id="@+id/teacher_name"
+        android:id="@+id/info_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="선생님 이름 입력"
@@ -145,11 +145,11 @@
         app:layout_constraintLeft_toLeftOf="@id/box"
         app:layout_constraintRight_toRightOf="@id/box"
         app:layout_constraintTop_toBottomOf="@id/subject"
-        app:layout_constraintBottom_toTopOf="@id/person"
+        app:layout_constraintBottom_toTopOf="@id/info_person"
         />
 
     <EditText
-        android:id="@+id/person"
+        android:id="@+id/info_person"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="최대 인원 수를 입력해주세요.(ex.4)"
@@ -173,7 +173,7 @@
         android:backgroundTint="@color/art_pink"
         app:layout_constraintLeft_toLeftOf="@id/box"
         app:layout_constraintRight_toRightOf="@id/box"
-        app:layout_constraintTop_toBottomOf="@id/person"
+        app:layout_constraintTop_toBottomOf="@id/info_person"
         app:layout_constraintBottom_toBottomOf="@id/box"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

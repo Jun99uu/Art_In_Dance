@@ -46,9 +46,9 @@ public class ClassReserverDecide extends AppCompatActivity {
         mcurrent = intent.getStringExtra("mcurrent");
         ID = intent.getStringExtra("mID");
 
-        TextView main = findViewById(R.id.teacher_name);
-        TextView info = findViewById(R.id.person);
-        TextView content = findViewById(R.id.content);
+        TextView main = findViewById(R.id.info_main);
+        TextView info = findViewById(R.id.info_person);
+        TextView content = findViewById(R.id.info_content);
 
         main.setText(mteacher + "선생님의 \n♥" + msubject + "♥");
         info.setText(mdate.substring(0,4) + "." + mdate.substring(4,6) + "." + mdate.substring(6,8) + " " + mdate.substring(8,10) + ":" + mdate.substring(10,12) + "~\n" + mtime + "분 수업\n최대인원 : " + mperson + "명\n현재인원 : " + mcurrent + "명");

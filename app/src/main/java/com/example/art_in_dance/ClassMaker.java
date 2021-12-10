@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -43,9 +42,9 @@ public class ClassMaker extends AppCompatActivity {
         textDate = findViewById(R.id.date);
         gettime = findViewById(R.id.time);
         getsubject = findViewById(R.id.subject);
-        getteacher = findViewById(R.id.teacher_name);
+        getteacher = findViewById(R.id.info_main);
         getexplain = findViewById(R.id.explain);
-        getmax = findViewById(R.id.person);
+        getmax = findViewById(R.id.info_person);
         class_make = findViewById(R.id.class_make);
 
         Calendar c = Calendar.getInstance();
@@ -81,7 +80,7 @@ public class ClassMaker extends AppCompatActivity {
                         textDate.setText(resultYear + "년 " + resultMonth + "월 " + resultDay + "일 " + resultHour + "시 " + resultMinute + "분");
                         date =  change(resultYear, resultMonth, resultDay, resultHour, resultMinute);
                     }
-                },mHour, mMinute, false);
+                },mHour, mMinute, true);
                 timePickerDialog.show();
             }
         });
