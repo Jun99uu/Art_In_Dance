@@ -183,4 +183,8 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             toast.cancel();
         }
     }
+
+    public void autoDelete(){
+
+    }
 }

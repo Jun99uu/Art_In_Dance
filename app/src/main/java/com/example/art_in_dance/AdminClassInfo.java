@@ -86,7 +86,15 @@ public class AdminClassInfo extends AppCompatActivity {
         list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if(mcurrent.equals("0")){
+                    Toast.makeText(getApplicationContext(),String.format("예약자가 없습니다."), Toast.LENGTH_SHORT).show();
+                }else{
+                    Intent intent;
+                    intent = new Intent(AdminClassInfo.this, UserList.class);
+                    intent.putExtra("Class", mdate);
+                    intent.putExtra("CURRENT", mcurrent);
+                    startActivity(intent);
+                }
             }
         });
 
