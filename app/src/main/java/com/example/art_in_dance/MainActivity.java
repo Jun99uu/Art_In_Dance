@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             public void onClick(View view) {
 
                 if(ID.equals("admin")){
-                    Intent user_check_intent = new Intent(MainActivity.this, ClassMaker.class);
+                    Intent user_check_intent = new Intent(MainActivity.this, AllClassCheck.class);
                     user_check_intent.putExtra("UserName", name);
                     startActivity(user_check_intent);
                 }else{Intent class_check_intent = new Intent(MainActivity.this, ReserveCheckLoading.class);

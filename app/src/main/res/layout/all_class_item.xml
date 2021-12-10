@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="#00FFFFFF">
+
+    <TextView
+        android:id="@+id/all_class_item"
+        android:layout_width="260dp"
+        android:layout_height="100dp"
+        android:text="2021.11.19 18:40~\n(50분)\n필라테스\n한미영 쌤\n(1/5)"
+        android:gravity="center"
+        android:fontFamily="@font/vitro_pride"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:background="@drawable/border_round"
+        android:backgroundTint="@color/art_green"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

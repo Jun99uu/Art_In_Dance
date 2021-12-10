@@ -14,6 +14,15 @@
         android:theme="@style/Theme.Art_In_Dance"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".UserList"
+            android:exported="true" />
+        <activity
+            android:name=".AdminClassInfo"
+            android:exported="true" />
+        <activity
+            android:name=".AllClassCheck"
+            android:exported="true" />
+        <activity
             android:name=".ReserveCheckLoading"
             android:exported="true" />
         <activity
