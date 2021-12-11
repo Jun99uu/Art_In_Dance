@@ -57,7 +57,7 @@ public class ATDRank extends AppCompatActivity {
                 try {
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject jsonObject = response.getJSONObject(i);
-                        String name = jsonObject.getString("UserName");
+                        String name = Integer.toString(response.length() - i) + "등 : " + jsonObject.getString("UserName");
 
                         items.add(0, new ATDRank_item(name));
                         adapter.notifyItemInserted(0);

@@ -8,7 +8,8 @@
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/drawable/border_main_button.xml" value="0.176" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/drawable/border_round.xml" value="0.2638888888888889" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/drawable/calandericon.xml" value="0.22592592592592592" />
-        <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/drawable/gradient.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/drawable/gradient.xml" value="0.264" />
+        <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/drawable/gradient_main.xml" value="0.22592592592592592" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/drawable/gradient_practice.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_admin_class_info.xml" value="0.176" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_all_class_check.xml" value="0.2" />
@@ -20,7 +21,8 @@
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_class_maker.xml" value="0.176" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_class_reserver.xml" value="0.21804511278195488" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_class_reserver_decide.xml" value="0.24909420289855072" />
-        <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_loading_page.xml" value="0.16510416666666666" />
+        <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_my_info.xml" value="0.264" />
         <entry key="..\:/Users/igun0/AndroidStudioProjects/Art_In_Dance/app/src/main/res/layout/activity_register.xml" value="0.264" />

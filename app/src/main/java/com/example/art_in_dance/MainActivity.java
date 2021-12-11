@@ -21,6 +21,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,8 +32,10 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     private Toast toast;
     String CONDATE;
     SwipeRefreshLayout swipeRefreshLayout;
-    String UserID;
+    String UserID, UserName;
     Context context;
+    String rank, atd;
+    TextView sumatd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,18 +56,31 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         Button class_check = findViewById(R.id.class_check);
         Button reserved_class = findViewById(R.id.reservation);
 
+        sumatd = (TextView)findViewById(R.id.atd_info);
+
         Intent intent = getIntent();
 
         String name = intent.getStringExtra("UserName");
-        set_name.setText(name);
+        UserName = name;
+        set_name.setText(name+"님,");
         String ID = intent.getStringExtra("UserID");
         UserID = ID;
+        rank = intent.getStringExtra("rank");
+        atd = intent.getStringExtra("atd");
+        sumatd.setText("이번 달에 " + atd + "회 출석하셨고,\n현재 " + rank + "등이시네요!");
+        if(rank == null && atd == null){
+            rank = intent.getStringExtra("rank");
+            atd = intent.getStringExtra("atd");
+            sumatd.setText("이번 달에 " + atd + "회 출석하셨고,\n현재 " + rank + "등이시네요!");
+        }
 
         attendance_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent atdintent = new Intent(MainActivity.this, AttendanceActivity.class);
                 atdintent.putExtra("UserName", name);
+                atdintent.putExtra("rank", rank);
+                atdintent.putExtra("atd", atd);
                 startActivity(atdintent);
             }
         });
@@ -181,6 +197,16 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         queuefirst.add(classReaderRequest);
 
         autoDelete();
+
+        long now = System.currentTimeMillis();
+        Date date = new Date(now);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd");
+        String day = dateFormat.format(date);
+        if(day.equals("01")){
+            resetATD();
+        }else{
+            getsummarize();
+        }
     }
 
     @Override
@@ -253,6 +279,56 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         AdminClassDeleteRequest decideRequestTwo = new AdminClassDeleteRequest(CONDATE, responseListenertwo);
         RequestQueue queuetwo = Volley.newRequestQueue(context);
         queuetwo.add(decideRequestTwo);
+    }
+
+    private void getsummarize(){
+        String Url = "http://artindance99.ivyro.net/ATDGet.php";
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST, Url, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    for (int i = 0; i < response.length(); i++) {
+                        JSONObject jsonObject = response.getJSONObject(i);
+                        if(UserName.equals(jsonObject.getString("UserName"))){
+                            rank = Integer.toString(response.length() - i);
+                            atd = jsonObject.getString("ATD");
+                            sumatd.setText("이번 달에 " + atd + "회 출석하셨고,\n현재 " + rank + "등이시네요!");
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),String.format("Error"), Toast.LENGTH_SHORT).show();
+            }
+        });
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
+    }
+
+    private void resetATD(){
+        String Url2 = "http://artindance99.ivyro.net/resetATD.php";
+        JsonArrayRequest jsonArrayRequest2 = new JsonArrayRequest(Request.Method.POST, Url2, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+            }
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),String.format("Error"), Toast.LENGTH_SHORT).show();
+            }
+        });
+        RequestQueue requestQueue2 = Volley.newRequestQueue(this);
+        requestQueue2.add(jsonArrayRequest2);
+
+        rank = "0";
+        atd = "0";
+        sumatd.setText("이번 달에 " + atd + "회 출석하셨고,\n현재 " + rank + "등이시네요!");
     }
 
 }

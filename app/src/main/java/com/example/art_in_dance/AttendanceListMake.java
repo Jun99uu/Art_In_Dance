@@ -76,8 +76,12 @@ public class AttendanceListMake extends AppCompatActivity {
     private void Loading() {
         Intent intent = getIntent();
         String name = intent.getStringExtra("UserName");
+        String rank = intent.getStringExtra("rank");
+        String atd = intent.getStringExtra("atd");
         Intent xintent = new Intent(AttendanceListMake.this, Attendance_done_Activity.class);
         xintent.putExtra("UserName", name);
+        xintent.putExtra("rank", rank);
+        xintent.putExtra("atd", atd);
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override

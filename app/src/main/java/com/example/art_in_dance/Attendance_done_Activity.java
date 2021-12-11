@@ -40,8 +40,12 @@ public class Attendance_done_Activity extends AppCompatActivity {
     public void onBackPressed(){
         Intent getintent = getIntent();
         String name = getintent.getStringExtra("UserName");
+        String rank = getintent.getStringExtra("rank");
+        String atd = getintent.getStringExtra("atd");
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("UserName", name);
+        intent.putExtra("rank", rank);
+        intent.putExtra("atd", atd);
         startActivity(intent);
     }
 }

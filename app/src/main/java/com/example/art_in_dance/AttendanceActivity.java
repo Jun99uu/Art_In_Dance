@@ -25,16 +25,22 @@ public class AttendanceActivity extends AppCompatActivity {
         TextView set_name = (TextView)findViewById(R.id.atd_name);
         Intent intent = getIntent();
         String name = intent.getStringExtra("UserName");
+        String rank = intent.getStringExtra("rank");
+        String atd = intent.getStringExtra("atd");
         set_name.setText(name);
 
         Intent two_intent = new Intent(AttendanceActivity.this, AttendanceListMake.class);
         two_intent.putExtra("UserName", name);
+        two_intent.putExtra("rank", rank);
+        two_intent.putExtra("atd", atd);
         startActivity(two_intent); //로딩 완료
 
         AttendanceTableMaker tableMaker;
 
         Intent three_intent = new Intent(AttendanceActivity.this, AttendanceListMake.class);
         three_intent.putExtra("UserName", name);
+        three_intent.putExtra("rank", rank);
+        three_intent.putExtra("atd", atd);
 
         TextView set_date = (TextView)findViewById(R.id.today_date);
         long now = System.currentTimeMillis();
