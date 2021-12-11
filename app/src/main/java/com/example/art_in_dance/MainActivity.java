@@ -3,6 +3,7 @@ package com.example.art_in_dance; //로그인 페이지
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,12 +11,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
@@ -24,11 +32,16 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     String CONDATE;
     SwipeRefreshLayout swipeRefreshLayout;
     String UserID;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        context = MainActivity.this;
+
+        autoDelete();
 
         swipeRefreshLayout = findViewById(R.id.swipeLayout);
         swipeRefreshLayout.setOnRefreshListener(this);
@@ -166,6 +179,8 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         UserClassReaderRequest classReaderRequest = new UserClassReaderRequest(UserID, responseListenerfirst);
         RequestQueue queuefirst = Volley.newRequestQueue(MainActivity.this);
         queuefirst.add(classReaderRequest);
+
+        autoDelete();
     }
 
     @Override
@@ -185,6 +200,59 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     }
 
     public void autoDelete(){
+        long now = System.currentTimeMillis();
+        Date date = new Date(now);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddhhmm");
+        String currenttime = dateFormat.format(date);
+        long time = Long.parseLong(currenttime);
 
+        String Url = "http://artindance99.ivyro.net/ReadClass.php";
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST, Url, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    for (int i = 0; i < response.length(); i++) {
+                        JSONObject jsonObject = response.getJSONObject(i);
+                        String CONDATE = jsonObject.getString("CONDATE");
+                        long savedtime = Long.parseLong(CONDATE);
+                        if(savedtime < time){
+                            ReadUserDeleteClass(CONDATE);
+                        }else{
+                            continue;
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),String.format("Error"), Toast.LENGTH_SHORT).show();
+            }
+        });
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        requestQueue.add(jsonArrayRequest);
     }
+
+    public void ReadUserDeleteClass(String CONDATE){
+        Response.Listener<String> responseListenertwo = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try{
+                    JSONObject jsonObjecttwo = new JSONObject(response);
+                    boolean success2 = jsonObjecttwo.getBoolean("success");
+                    Toast.makeText(getApplicationContext(),String.format("수업 최신화가 완료되었습니다."), Toast.LENGTH_SHORT).show();
+                }catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        };
+        AdminClassDeleteRequest decideRequestTwo = new AdminClassDeleteRequest(CONDATE, responseListenertwo);
+        RequestQueue queuetwo = Volley.newRequestQueue(context);
+        queuetwo.add(decideRequestTwo);
+    }
+
 }
