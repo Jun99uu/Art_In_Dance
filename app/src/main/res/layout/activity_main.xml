@@ -77,7 +77,8 @@
                 app:layout_constraintBottom_toTopOf="@id/dev_info"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:paddingTop="10dp"/>
+                android:paddingTop="10dp"
+                />
 
 
 
@@ -238,6 +239,7 @@
                 android:backgroundTint="@color/art_white" />
 
             <Button
+                android:id="@+id/logout"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
                 android:background="@drawable/border_round"

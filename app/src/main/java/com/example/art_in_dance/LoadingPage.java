@@ -55,58 +55,36 @@ public class LoadingPage extends AppCompatActivity {
                 Date date = new Date(now);
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd");
                 String day = dateFormat.format(date);
-                if(day.equals("01")){
-                    String Url2 = "http://artindance99.ivyro.net/resetATD.php";
-                    JsonArrayRequest jsonArrayRequest2 = new JsonArrayRequest(Request.Method.POST, Url2, null, new Response.Listener<JSONArray>() {
-                        @Override
-                        public void onResponse(JSONArray response) {
-                        }
-                    }, new Response.ErrorListener(){
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getApplicationContext(),String.format("Error"), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    RequestQueue requestQueue2 = Volley.newRequestQueue(LoadingPage.this);
-                    requestQueue2.add(jsonArrayRequest2);
+                String Url = "http://artindance99.ivyro.net/ATDGet.php";
 
-                    rank = "0";
-                    atd = "0";
-                    xintent.putExtra("rank", rank);
-                    xintent.putExtra("atd", atd);
-                    startActivity(xintent);
-                }else{
-                    String Url = "http://artindance99.ivyro.net/ATDGet.php";
-
-                    JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST, Url, null, new Response.Listener<JSONArray>() {
-                        @Override
-                        public void onResponse(JSONArray response) {
-                            try {
-                                for (int i = 0; i < response.length(); i++) {
-                                    JSONObject jsonObject = response.getJSONObject(i);
-                                    if(UserName.equals(jsonObject.getString("UserName"))){
-                                        rank = Integer.toString(response.length() - i);
-                                        atd = jsonObject.getString("ATD");
-                                        xintent.putExtra("rank", rank);
-                                        xintent.putExtra("atd", atd);
-                                        System.out.println(rank + atd);
-                                        startActivity(xintent);
-                                    }
+                JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.POST, Url, null, new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            for (int i = 0; i < response.length(); i++) {
+                                JSONObject jsonObject = response.getJSONObject(i);
+                                if(UserName.equals(jsonObject.getString("UserName"))){
+                                    rank = Integer.toString(response.length() - i);
+                                    atd = jsonObject.getString("ATD");
+                                    xintent.putExtra("rank", rank);
+                                    xintent.putExtra("atd", atd);
+                                    System.out.println(rank + atd);
+                                    startActivity(xintent);
                                 }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
                             }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
-                        }
-                    }, new Response.ErrorListener(){
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getApplicationContext(),String.format("Error"), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    RequestQueue requestQueue = Volley.newRequestQueue(LoadingPage.this);
-                    requestQueue.add(jsonArrayRequest);
-                }
+                    }
+                }, new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(),String.format("Error"), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                RequestQueue requestQueue = Volley.newRequestQueue(LoadingPage.this);
+                requestQueue.add(jsonArrayRequest);
             }
         }, 3000);
     }

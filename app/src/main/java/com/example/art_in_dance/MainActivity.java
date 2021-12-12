@@ -3,8 +3,12 @@ package com.example.art_in_dance; //로그인 페이지
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.app.AlertDialog;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     private long backKeyPressedTime = 0;
     private Toast toast;
-    String CONDATE;
+    public String CONDATE;
     SwipeRefreshLayout swipeRefreshLayout;
     String UserID, UserName;
     Context context;
@@ -55,6 +59,9 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         Button rank_btn = findViewById(R.id.rank_btn);
         Button class_check = findViewById(R.id.class_check);
         Button reserved_class = findViewById(R.id.reservation);
+        Button reference = findViewById(R.id.reference);
+        Button logout = findViewById(R.id.logout);
+        Button devinfo = findViewById(R.id.dev_info);
 
         sumatd = (TextView)findViewById(R.id.atd_info);
 
@@ -163,7 +170,55 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             }
         });
 
+        if(ID.equals("admin")){
+            reference.setText("출석부 초기화");
+        }
 
+        reference.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(ID.equals("admin")){
+                    resetATD();
+                }else{
+                    Toast.makeText(getApplicationContext(), "준비중이에요.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
+                dlg.setTitle("로그아웃"); //제목
+                dlg.setMessage("로그아웃 하시겠습니까?"); // 메시지
+                dlg.setIcon(R.drawable.bomb); // 아이콘 설정
+                dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getApplicationContext(), "감사합니다 :)", Toast.LENGTH_SHORT).show();
+                        restart(MainActivity.this);
+                    }
+                });
+                dlg.show();
+            }
+        });
+
+        devinfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
+                dlg.setTitle("개발자 정보"); //제목
+                dlg.setMessage("IG : @99uu_u\nigun0423@naver.com\n무단 배포시 법적 처벌을 받을 수 있으며, 버그 발견시 연락 부탁드립니다."); // 메시지
+                dlg.setIcon(R.drawable.bomb); // 아이콘 설정
+                dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getApplicationContext(), "감사합니다 :)", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dlg.show();
+            }
+        });
     }
 
     @Override
@@ -202,11 +257,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         Date date = new Date(now);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd");
         String day = dateFormat.format(date);
-        if(day.equals("01")){
-            resetATD();
-        }else{
-            getsummarize();
-        }
+        getsummarize();
     }
 
     @Override
@@ -329,6 +380,15 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         rank = "0";
         atd = "0";
         sumatd.setText("이번 달에 " + atd + "회 출석하셨고,\n현재 " + rank + "등이시네요!");
+    }
+
+    private void restart(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        Intent intent = packageManager.getLaunchIntentForPackage(context.getPackageName());
+        ComponentName componentName = intent.getComponent();
+        Intent mainIntent = Intent.makeRestartActivityTask(componentName);
+        context.startActivity(mainIntent);
+        Runtime.getRuntime().exit(0);
     }
 
 }
